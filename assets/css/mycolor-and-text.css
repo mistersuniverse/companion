@@ -26,11 +26,11 @@
     color: white;
 }
 
-.nav-link:hover, .dropdown-toggle, .brand, .update, .footer-mail-link:hover, .social-links:hover {
+.nav-link:hover, .dropdown-toggle:hover , .brand:hover , .update, .footer-mail-link:hover, .social-links:hover {
     color: grey;
 }
 
-.update:hover, .brand:hover {
+.update:hover, .brand {
     color:white;
 }
 
