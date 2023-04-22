@@ -6,6 +6,9 @@
 .btn {
     background-image: linear-gradient(to right, grey , grey);
 }
+.btn:hover {
+    background-image: linear-gradient(to right, rgb(255, 255, 255) , rgb(255, 255, 255));
+}
 
 .separator-1 {
     height: 10px;
@@ -19,6 +22,18 @@
     background-color: #000000;
 }
 
-a {
+.nav-link, .social-links {
     color: white;
+}
+
+.nav-link:hover, .dropdown-toggle, .brand, .update, .footer-mail-link:hover, .social-links:hover {
+    color: grey;
+}
+
+.update:hover, .brand:hover {
+    color:white;
+}
+
+.content-link:hover {
+    color:black;
 }
