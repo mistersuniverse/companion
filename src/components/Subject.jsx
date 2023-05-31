@@ -5,30 +5,7 @@ import Tilt from 'react-parallax-tilt';
 import { SectionWrapper } from '../hoc';
 
 import { Courses } from "../constants"; 
-import { fadeIn } from "../utils/motion";
 
-const subCard = ({index, title}) => (
-    
-    <div
-      variants={fadeIn("right", "spring", index*0.5, 0.75)} // (direction, type, delay, duration)
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-    >
-        <div
-          options={{
-            max: 45, 
-            scale: 1,
-            speed: 450,
-          }}
-          className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[1000px] w-full' 
-        >
-          <h1 className='text-white text-[20px] font-bold text-center  w-full'>
-            {title}
-          </h1>
-
-        </div>
-      </div>
-  
-);
 
 const Card = ({index, syllabus, short_notes, short_course, long_course, books, pyqs}) => (
     
@@ -41,7 +18,7 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
               scale: 1,
               speed: 450,
             }}
-            className='bg-tertiary rounded-[20px] py-5 px-[5rem]  w-full' 
+            className='bg-tertiary rounded-[20px] sm:py-5 py-3 lg:px-[5rem] px-8 w-full' 
           >
             <div className="py-12">
                 <div className="flex justify-between"> 
