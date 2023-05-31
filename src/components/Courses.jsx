@@ -29,7 +29,7 @@ const Card = ({index, title, icon}) => (
           />
 
           <h3 className='text-white text-[20px] font-bold text-center'>
-            {title}
+            {title.toUpperCase()}
           </h3>
 
         </div>
@@ -44,7 +44,7 @@ const Courses = () => (
         <h2 className={styles.sectionHeadText}>BMS.</h2>
         </motion.div>
 
-        <div className='mt-20 flex flex-wrap justify-between '>
+        <div className='mt-20 flex flex-wrap justify-between gap-8'>
         {semesters.map((sem, index) => ( 
             <Card key={sem.title} index={index} {...sem} />
         ))}

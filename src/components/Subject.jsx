@@ -46,7 +46,7 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
             <div className="py-12">
                 <div className="flex justify-between"> 
                 {syllabus.content.map((content) => (
-                    <div className="min-w-full green-pink-gradient p-3 rounded-lg text-lg">
+                    <div className="min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -54,12 +54,12 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
             </div>
             
             <div className="pb-12 mb-16">
-                <h1 className='text-white text-[40px] font-bold text-center pb-8'>
+                <h1 className='text-white sm:text-[40px] text-[32px] font-bold text-center pb-8'>
                     {short_notes.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {short_notes.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg text-lg">
+                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -67,12 +67,12 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
             </div>
 
             <div className="pb-12 mb-16">
-                <h1 className='text-white text-[40px] font-bold text-center pb-8'>
+                <h1 className='text-white sm:text-[40px] text-[32px] font-bold text-center pb-8'>
                     {short_course.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {short_course.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg text-lg">
+                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -81,12 +81,12 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
             
 
             <div className="pb-12 mb-16">
-                <h1 className='text-white text-[40px] font-bold text-center pb-8'>
+                <h1 className='text-white sm:text-[40px] text-[32px] font-bold text-center pb-8'>
                     {long_course.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {long_course.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg text-lg">
+                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -94,12 +94,12 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
             </div>
 
             <div className="pb-12 mb-16">
-                <h1 className='text-white text-[40px] font-bold text-center pb-8'>
+                <h1 className='text-white sm:text-[40px] text-[32px] font-bold text-center pb-8'>
                     {books.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {books.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg text-lg">
+                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -107,12 +107,12 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
             </div>
 
             <div className="pb-12 mb-16">
-                <h1 className='text-white text-[40px] font-bold text-center pb-8'>
+                <h1 className='text-white sm:text-[40px] text-[32px] font-bold text-center pb-8'>
                     {pyqs.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {pyqs.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg text-lg">
+                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
