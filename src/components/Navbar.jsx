@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 
-import { logo, menu, close } from "../assets";
-// import logo from "../../public/logo.png"
+import { logo, menu, close, dropdown } from "../assets";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 
@@ -37,8 +36,8 @@ const Navbar = () => {
                                 hover:text-white text-[18px] font-medium cursor-pointer}`}
                             onClick={() => setActive(navLink.title)}
                         >
-                            <a href={`#${navLink.id}`}>
-                                {navLink.title}
+                            <a href={`#${navLink.id}`} className="flex">
+                                {navLink.title} {navLink.id === "courses" ? <img className="w-6 h-6 object contain" src={dropdown} alt="dropdown"/> : null}
                             </a>
                         </li>
                     ))}
@@ -68,8 +67,8 @@ const Navbar = () => {
                             hover:text-white text-[18px] font-medium cursor-pointer}`}
                         onClick={() => setActive(navLink.title)}
                     >
-                        <a href={`#${navLink.id}`}>
-                            {navLink.title}
+                        <a href={`#${navLink.id}`} className="flex">
+                            {navLink.title} {navLink.id === "courses" ? <img className="w-6 h-6 object contain" src={dropdown} alt="dropdown"/> : null}
                         </a>
                     </li>
                 ))}

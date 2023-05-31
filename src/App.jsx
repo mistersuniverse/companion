@@ -1,4 +1,4 @@
-import { Navbar, Hero, Courses, Semesters, Subjects, Contact } from "./components";
+import { Navbar, Hero, Courses, Subjects, Subject, Contact } from "./components";
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => (
@@ -11,8 +11,8 @@ const App = () => (
       </div>
       
       <Courses />
-      <Semesters />
       <Subjects />
+      <Subject />
 
       <div className="relative">
         <Contact />
