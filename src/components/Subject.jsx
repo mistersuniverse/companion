@@ -6,7 +6,7 @@ import { SectionWrapper } from '../hoc';
 
 import { Courses } from "../constants"; 
 
-const Card = ({index, syllabus, short_notes, short_course, long_course, books, pyqs}) => (
+const Card = ({index, syllabus, short_notes, short_course, long_course, books, pyqs, course, subject}) => (
     
       <div
         className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
@@ -18,7 +18,9 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
               speed: 450,
             }}
             className='bg-tertiary rounded-[20px] sm:py-5 py-3 lg:px-[5rem] px-8 w-full' 
-          >
+          > 
+            <h1 className="text-center text-[32px]"> {course.replace(/[_]/g, " ").toUpperCase()} <br />{subject.replace(/[_]/g, " ").toUpperCase()}</h1>
+
             <div className="py-12">
                 <div className="flex justify-between"> 
                 {syllabus.content.map((content) => (
@@ -104,8 +106,7 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
 const Subject = ({course, subject}) => (
 
     <div className="w-9/12 m-32"> 
-        hi {course} {subject}
-        <Card key={subject} {...Courses[course][subject]}/>
+        <Card {...Courses[course][subject]} course={course} subject={subject}/>
     </div>
 );
 

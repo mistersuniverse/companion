@@ -11,7 +11,7 @@ import { Subject } from "../components";
 const course = Courses["bms_sem1"]
 var subjects_of_the_course = Object.keys(course);
 
-const Card = ({ index, title, setActiveCard, activeCard, setCurrentTitle, currentTitle }) => {
+const Card = ({ index, title, setActiveCard, activeCard, setCurrentTitle}) => {
 
   return (
     <Tilt className='xs:w-[250px] w-full'>
@@ -60,12 +60,11 @@ const Subjects = ({activeCourse}) => {
             setActiveCard={setActiveCard}
             activeCard={activeCard}
             setCurrentTitle={setCurrentTitle}
-            currentTitle={currentTitle}
           />
         ))}
       </div>
       <Subject 
-        course={activeCourse}
+        course="bms_sem1"
         subject={currentTitle}
       />
     </div>
