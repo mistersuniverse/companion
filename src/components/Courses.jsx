@@ -1,33 +1,36 @@
-import React, { useState }from "react";
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Tilt from 'react-parallax-tilt';
-
-import { styles } from '../styles';
-import { semesters } from '../constants';
-import { fadeIn, textVariant } from '../utils/motion';
 
 import { SectionWrapper } from '../hoc';
 
-const Card = ({index, title, icon}) => {
+import { styles }  from "../styles";
+import { semesters } from "../constants";
+import { fadeIn,textVariant } from "../utils/motion";
+import { Subjects } from "../components";
 
-  const [active, setActive] = useState("");
+
+const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, activeCourse }) => {
 
   return (
-  <Tilt className='xs:w-[250px] w-full'>
-    <motion.div
-      variants={fadeIn("right", "spring", index*0.5, 0.75)} // (direction, type, delay, duration)
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-      onClick={() => {
-            setActive(title);
-          }}
-    >
+    <Tilt className='xs:w-[250px] w-full'>
+      <motion.div
+        variants={fadeIn("right", "spring", index*0.5, 0.75)} // (direction, type, delay, duration)
+        className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
+        onClick={() => {
+          setActiveCard(index);
+          const course = `bms_${title}`
+          setActiveCourse(course);
+          console.log(activeCourse)
+        }}
+      >
         <div
           options={{
             max: 45, 
             scale: 1,
             speed: 450,
           }}
-          className={`${!(active === title)? "bg-tertiary": ""} rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col`}
+          className={` ${!(activeCard === index) ? "bg-tertiary" : ""} rounded-[20px] py-5 px-12 min-h-[200px] flex justify-evenly items-center flex-col`}
           
         >
           <img
@@ -42,23 +45,39 @@ const Card = ({index, title, icon}) => {
 
         </div>
       </motion.div>
-  </Tilt>
-)
+    </Tilt>
+  );
 };
 
-const Courses = () => (
+const Courses = () => {
+  const [activeCard, setActiveCard] = useState(null);
+  const [activeCourse, setActiveCourse] = useState("bms_sem1")
+
+  return (
     <>
-        <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Courses</p>
         <h2 className={styles.sectionHeadText}>BMS.</h2>
-        </motion.div>
+      </motion.div>
 
-        <div className='mt-20 flex flex-wrap justify-between gap-8'>
-        {semesters.map((sem, index) => ( 
-            <Card key={sem.title} index={index} {...sem} />
+      <div className='mt-20 flex flex-wrap justify-between gap-8 mb-32'>
+        {semesters.map((semester, index) => (
+          <Card
+            key={semester.title}
+            index={index}
+            title={semester.title}
+            icon={semester.icon}
+            setActiveCard={setActiveCard}
+            activeCard={activeCard}
+            setActiveCourse={setActiveCourse}
+            activeCourse={activeCourse}
+          />
         ))}
-        </div>
-    </>
-);
+      </div>
 
-export default SectionWrapper(Courses,"courses");
+      <Subjects activeCourse={activeCourse}/>
+    </>
+  );
+};
+
+export default SectionWrapper(Courses, "courses");

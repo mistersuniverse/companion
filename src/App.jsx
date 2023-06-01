@@ -11,8 +11,8 @@ const App = () => (
       </div>
       
       <Courses />
-      <Subjects />
-      <Subject />
+
+      
 
       <div className="relative">
         <Contact />

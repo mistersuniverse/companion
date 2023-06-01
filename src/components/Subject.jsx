@@ -6,7 +6,6 @@ import { SectionWrapper } from '../hoc';
 
 import { Courses } from "../constants"; 
 
-
 const Card = ({index, syllabus, short_notes, short_course, long_course, books, pyqs}) => (
     
       <div
@@ -102,10 +101,12 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
     
 );
 
-const Subjects = () => (
-    <div className="w-full">   
-        <Card {...Courses["bms_sem2"]["micro_economics"]}/>
+const Subject = ({course, subject}) => (
+
+    <div className="w-9/12 m-32"> 
+        hi {course} {subject}
+        <Card key={subject} {...Courses[course][subject]}/>
     </div>
 );
 
-export default SectionWrapper(Subjects, "subjects");
+export default Subject;
