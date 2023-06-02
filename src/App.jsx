@@ -1,4 +1,4 @@
-import { Navbar, Hero, Courses, Subjects, Subject, Contact } from "./components";
+import { Navbar, Hero, Courses, Contact } from "./components";
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => (

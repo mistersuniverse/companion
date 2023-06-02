@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Tilt from 'react-parallax-tilt';
 
@@ -8,7 +8,72 @@ import { styles }  from "../styles";
 import { semesters } from "../constants";
 import { fadeIn,textVariant } from "../utils/motion";
 import { Subjects } from "../components";
+import { dropdownwhite } from "../assets";
+import { act } from "@react-three/fiber";
+const CourseMenu = () => {
+  const [active, setActive ] = useState(false);
+  const [activeCourse, setActiveCourse] = useState("BMS");
+  const [inputValue, setInputValue] = useState("");
+  // useEffect(() => {
+  //   const handleClick = () => {
+  //     active ? alert("hi"): null ;
+  //   };
 
+  //   // Add event listener to the window when the component mounts
+  //   window.addEventListener("click", handleClick);
+
+  //   // Clean up the event listener when the component unmounts
+  //   return () => {
+  //     window.removeEventListener("click", handleClick);
+  //   };
+  // }, []); // Empty dependency array to run the effect only once
+
+  const courses = ["BMS", "BCOM", "BA", "BTECH", "BCA"];
+  return (
+    <div>
+
+      <h2 
+        className={` ${styles.sectionHeadText} flex items-start gap-2`} 
+      >
+        { !active? activeCourse : 
+          <input 
+            type="search" 
+            className="relative top-2 w-[280px] rounded-xl max-h-10 text-sm font-light py-5 px-6"
+            placeholder={"type your course"}
+            onChange={(event) => setInputValue(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                setActiveCourse("active")
+                setActive(false)};
+              }}
+          >
+          </input>}
+          
+          <img 
+            src={dropdownwhite} alt="dropdown" 
+            className={` ${active?"rotate-180 w-[45px] relative top-1": " relative top-4 lg:w-[55px] sm:w-[60px] xs:w-[50px] w-[40px] lg:h-[55px] sm:h-[60px] xs:h-[50px] h-[40px]"}`}
+            onClick={() => {
+              setActive(!active);
+            }}
+          />
+      </h2>
+      
+      <div className={`${ !active ? "hidden": "relative" } top-5 sm:min-w-[280px] w-[358px] black-gradient rounded-xl z-20 py-3 px-5 leading-8`}>
+        {courses.map((course) => (
+          <div 
+            onClick={() => {
+              setActiveCourse(course);
+              setActive(!active);
+            }}
+          >
+            {course}
+          </div>
+        ))}
+      </div>
+
+    </div>
+  )
+}
 
 const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, activeCourse }) => {
 
@@ -49,14 +114,14 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, 
 };
 
 const Courses = () => {
-  const [activeCard, setActiveCard] = useState(1);
-  const [activeCourse, setActiveCourse ] = useState("bms_sem2")
+  const [activeCard, setActiveCard] = useState(0);
+  const [activeCourse, setActiveCourse ] = useState("bms_sem1")
   
   return (
     <div className="">
       <div variants={textVariant()}>
         <p className={styles.sectionSubText}>Courses</p>
-        <h2 className={styles.sectionHeadText}>BMS.</h2>
+        <CourseMenu />
       </div>
 
       <div className='mt-20 flex flex-wrap flex-col sm:flex-row justify-between gap-8 mb-32'>

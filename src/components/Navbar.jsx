@@ -37,7 +37,7 @@ const Navbar = () => {
                             onClick={() => setActive(navLink.title)}
                         >
                             <a href={`#${navLink.id}`} className="flex">
-                                {navLink.title} {navLink.id === "courses" ? <img className="w-6 h-6 object contain" src={dropdown} alt="dropdown"/> : null}
+                                {navLink.title} 
                             </a>
                         </li>
                     ))}
@@ -68,7 +68,8 @@ const Navbar = () => {
                         onClick={() => setActive(navLink.title)}
                     >
                         <a href={`#${navLink.id}`} className="flex">
-                            {navLink.title} {navLink.id === "courses" ? <img className="w-6 h-6 object contain" src={dropdown} alt="dropdown"/> : null}
+                            {navLink.title} 
+                            {/* {navLink.id === "courses" ? <img className="w-6 h-6 object contain" src={dropdown} alt="dropdown"/> : null} */}
                         </a>
                     </li>
                 ))}
