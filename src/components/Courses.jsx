@@ -19,9 +19,7 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, 
         className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
         onClick={() => {
           setActiveCard(index);
-          const course = `bms_${title}`
-          setActiveCourse(course);
-          console.log(activeCourse)
+          // setActiveCourse(course);
         }}
       >
         <div
@@ -50,7 +48,7 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, 
 };
 
 const Courses = () => {
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState(1);
   const [activeCourse, setActiveCourse] = useState("bms_sem2")
 
   return (
@@ -60,7 +58,7 @@ const Courses = () => {
         <h2 className={styles.sectionHeadText}>BMS.</h2>
       </motion.div>
 
-      <div className='mt-20 flex flex-wrap justify-between gap-8 mb-32'>
+      <div className='mt-20 flex flex-wrap flex-col sm:flex-row justify-between gap-8 mb-32'>
         {semesters.map((semester, index) => (
           <Card
             key={semester.title}
@@ -75,7 +73,7 @@ const Courses = () => {
         ))}
       </div>
 
-      <Subjects activeCourse={activeCourse}/>
+      {/* <Subjects activeCourse={activeCourse}/> */}
     </>
   );
 };

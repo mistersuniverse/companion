@@ -7,8 +7,6 @@ import { SectionWrapper } from '../hoc';
 import { Courses } from "../constants";
 import { fadeIn } from "../utils/motion";
 import { Subject } from "../components";
-import { Subject } from "../components";
-
 
 const course = Courses["bms_sem2"]
 var subjects_of_the_course = Object.keys(course);
