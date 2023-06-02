@@ -66,4 +66,4 @@ const Subjects = () => {
   </div>
 )};
 
-export default Subjects;
+export default SectionWrapper(Subjects, "subjects");
