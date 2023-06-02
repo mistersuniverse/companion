@@ -14,12 +14,13 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, 
 
   return (
     <Tilt className='xs:w-[250px] w-full'>
-      <motion.div
+      <div
         variants={fadeIn("right", "spring", index*0.5, 0.75)} // (direction, type, delay, duration)
-        className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
+        className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card object-contain flex flex-col'
         onClick={() => {
           setActiveCard(index);
-          // setActiveCourse(course);
+          const course = `bms_${title}`
+          setActiveCourse(course);
         }}
       >
         <div
@@ -42,21 +43,21 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, 
           </h3>
 
         </div>
-      </motion.div>
+      </div>
     </Tilt>
   );
 };
 
 const Courses = () => {
   const [activeCard, setActiveCard] = useState(1);
-  const [activeCourse, setActiveCourse] = useState("bms_sem2")
-
+  const [activeCourse, setActiveCourse ] = useState("bms_sem2")
+  
   return (
-    <>
-      <motion.div variants={textVariant()}>
+    <div className="">
+      <div variants={textVariant()}>
         <p className={styles.sectionSubText}>Courses</p>
         <h2 className={styles.sectionHeadText}>BMS.</h2>
-      </motion.div>
+      </div>
 
       <div className='mt-20 flex flex-wrap flex-col sm:flex-row justify-between gap-8 mb-32'>
         {semesters.map((semester, index) => (
@@ -68,13 +69,12 @@ const Courses = () => {
             setActiveCard={setActiveCard}
             activeCard={activeCard}
             setActiveCourse={setActiveCourse}
-            activeCourse={activeCourse}
           />
         ))}
       </div>
 
-      {/* <Subjects activeCourse={activeCourse}/> */}
-    </>
+      <Subjects activeCourse={activeCourse} />
+    </div>
   );
 };
 
