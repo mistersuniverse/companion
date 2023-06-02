@@ -12,7 +12,6 @@ const App = () => (
       
       <Courses />
       <Subjects />
-      <Subject />
 
       <div className="relative">
         <Contact />
