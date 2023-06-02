@@ -106,10 +106,14 @@ const Card = ({index,course,subject, syllabus, short_notes, short_course, long_c
     
 );
 
-const Subject = ({course, subject}) => (
-    <div className=" w-full">   
-        <Card {...Courses[course][subject]} course={course} subject={subject}/>
+const Subject = ({activeCourse, activeSubject}) => {
+    
+
+    return (
+    <div className=" w-full sm:w-10/12">   
+        <Card {...Courses[activeCourse][activeSubject]} course={activeCourse} subject={activeSubject}/>
     </div>
-);
+    )
+};
 
 export default Subject;
