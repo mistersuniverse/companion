@@ -12,8 +12,6 @@ const App = () => (
       
       <Courses />
 
-      
-
       <div className="relative">
         <Contact />
         {/* <StarsCanvas /> */}
