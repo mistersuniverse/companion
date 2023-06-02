@@ -105,7 +105,7 @@ const Card = ({index, syllabus, short_notes, short_course, long_course, books, p
 
 const Subject = ({course, subject}) => (
 
-    <div className="w-9/12 m-32"> 
+    <div className="sm:w-9/12 w-full m-32"> 
         <Card {...Courses[course][subject]} course={course} subject={subject}/>
     </div>
 );

@@ -8,7 +8,7 @@ import { Courses } from "../constants";
 import { fadeIn } from "../utils/motion";
 import { Subject } from "../components";
 
-const course = Courses["bms_sem1"]
+const course = Courses["bms_sem2"]
 var subjects_of_the_course = Object.keys(course);
 
 const Card = ({ index, title, setActiveCard, activeCard, setCurrentTitle}) => {
@@ -64,7 +64,7 @@ const Subjects = ({activeCourse}) => {
         ))}
       </div>
       <Subject 
-        course="bms_sem1"
+        course="bms_sem2"
         subject={currentTitle}
       />
     </div>

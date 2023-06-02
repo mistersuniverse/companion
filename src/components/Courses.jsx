@@ -51,7 +51,7 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, 
 
 const Courses = () => {
   const [activeCard, setActiveCard] = useState(null);
-  const [activeCourse, setActiveCourse] = useState("bms_sem1")
+  const [activeCourse, setActiveCourse] = useState("bms_sem2")
 
   return (
     <>
