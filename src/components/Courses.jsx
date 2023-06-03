@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import Tilt from 'react-parallax-tilt';
 
 import { SectionWrapper } from '../hoc';
@@ -15,7 +14,7 @@ import { act } from "@react-three/fiber";
 const CourseMenu = ({ activeCore, setActiveCore, setActiveCourse, setActiveCard, setActiveIndex }) => {
   const [active, setActive ] = useState(false);
 
-  const courses = ["bms", "bcom", "BA", "BTECH", "BCA"];
+  const courses = ["BMS", "BCOM", "BA", "BTECH", "BCA"];
   return (
     <div>
       <h2 
@@ -28,8 +27,8 @@ const CourseMenu = ({ activeCore, setActiveCore, setActiveCourse, setActiveCard,
             placeholder={"type your course"}
             onKeyDown={(event) => {
               if (event.key === "Enter") {
-                setActiveCore(event.target.value)
-                setActiveCourse(`${event.target.value}_sem1`)
+                setActiveCore(event.target.value.toLowerCase())
+                setActiveCourse(`${event.target.value.toLowerCase()}_sem1`)
                 setActive(false)};
                 setActiveCard(0);
                 setActiveIndex(0)
@@ -50,8 +49,8 @@ const CourseMenu = ({ activeCore, setActiveCore, setActiveCourse, setActiveCard,
         {courses.map((course) => (
           <div 
             onClick={() => {
-              setActiveCore(course);
-              setActiveCourse(`${course}_sem1`)
+              setActiveCore(course.toLowerCase());
+              setActiveCourse(`${course.toLowerCase()}_sem1`)
               setActive(!active);
               setActiveCard(0)
               setActiveIndex(0)
