@@ -8,30 +8,16 @@ import { styles }  from "../styles";
 import { semesters } from "../constants";
 import { fadeIn,textVariant } from "../utils/motion";
 import { Subjects } from "../components";
-import { dropdownwhite } from "../assets";
-import { act } from "@react-three/fiber";
+import { dropdown } from "../assets";
+
+
 const CourseMenu = () => {
   const [active, setActive ] = useState(false);
   const [activeCourse, setActiveCourse] = useState("BMS");
-  const [inputValue, setInputValue] = useState("");
-  // useEffect(() => {
-  //   const handleClick = () => {
-  //     active ? alert("hi"): null ;
-  //   };
-
-  //   // Add event listener to the window when the component mounts
-  //   window.addEventListener("click", handleClick);
-
-  //   // Clean up the event listener when the component unmounts
-  //   return () => {
-  //     window.removeEventListener("click", handleClick);
-  //   };
-  // }, []); // Empty dependency array to run the effect only once
-
+  
   const courses = ["BMS", "BCOM", "BA", "BTECH", "BCA"];
   return (
     <div>
-
       <h2 
         className={` ${styles.sectionHeadText} flex items-start gap-2`} 
       >
@@ -40,17 +26,16 @@ const CourseMenu = () => {
             type="search" 
             className="relative top-2 w-[280px] rounded-xl max-h-10 text-sm font-light py-5 px-6"
             placeholder={"type your course"}
-            onChange={(event) => setInputValue(event.target.value)}
             onKeyDown={(event) => {
               if (event.key === "Enter") {
-                setActiveCourse("active")
+                setActiveCourse(event.target.value)
                 setActive(false)};
               }}
           >
           </input>}
           
           <img 
-            src={dropdownwhite} alt="dropdown" 
+            src={dropdown} alt="dropdown" 
             className={` ${active?"rotate-180 w-[45px] relative top-1": " relative top-4 lg:w-[55px] sm:w-[60px] xs:w-[50px] w-[40px] lg:h-[55px] sm:h-[60px] xs:h-[50px] h-[40px]"}`}
             onClick={() => {
               setActive(!active);
