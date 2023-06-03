@@ -37,14 +37,13 @@ const Card = ({index, title, setActive, active}) => {
   );
 };
 
-const Subjects = ({activeCourse}) => {
-  const [active, setActive] = useState(0);
+const Subjects = ({activeCourse, active, setActive}) => {
 
   var course = Courses[activeCourse]
-  var subjects_of_the_course = Object.keys(course);
-  var activeSubject = subjects_of_the_course[active];
 
-  console.log(activeCourse)
+  var subjects_of_the_course = Object.keys(course);
+
+  var activeSubject = subjects_of_the_course[active];
   return (
   
   <div className="flex flex-col gap-40 items-center ">

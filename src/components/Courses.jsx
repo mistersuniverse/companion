@@ -9,27 +9,30 @@ import { semesters } from "../constants";
 import { fadeIn,textVariant } from "../utils/motion";
 import { Subjects } from "../components";
 import { dropdown } from "../assets";
+import { act } from "@react-three/fiber";
 
 
-const CourseMenu = () => {
+const CourseMenu = ({ activeCore, setActiveCore, setActiveCourse, setActiveCard, setActiveIndex }) => {
   const [active, setActive ] = useState(false);
-  const [activeCourse, setActiveCourse] = useState("BMS");
-  
-  const courses = ["BMS", "BCOM", "BA", "BTECH", "BCA"];
+
+  const courses = ["bms", "bcom", "BA", "BTECH", "BCA"];
   return (
     <div>
       <h2 
         className={` ${styles.sectionHeadText} flex items-start gap-2`} 
       >
-        { !active? activeCourse : 
+        { !active? activeCore : 
           <input 
             type="search" 
-            className="relative top-2 w-[280px] rounded-xl max-h-10 text-sm font-light py-5 px-6"
+            className="relative top-2 xs:w-[230px] w-10/12  rounded-xl max-h-10 text-sm font-light py-5 px-6"
             placeholder={"type your course"}
             onKeyDown={(event) => {
               if (event.key === "Enter") {
-                setActiveCourse(event.target.value)
+                setActiveCore(event.target.value)
+                setActiveCourse(`${event.target.value}_sem1`)
                 setActive(false)};
+                setActiveCard(0);
+                setActiveIndex(0)
               }}
           >
           </input>}
@@ -43,12 +46,15 @@ const CourseMenu = () => {
           />
       </h2>
       
-      <div className={`${ !active ? "hidden": "relative" } top-5 sm:min-w-[280px] w-[358px] black-gradient rounded-xl z-20 py-3 px-5 leading-8`}>
+      <div className={`${ !active ? "hidden": "relative" } top-5 xs:max-w-[280px] w-full black-gradient rounded-xl z-20 py-3 px-5 leading-8`}>
         {courses.map((course) => (
           <div 
             onClick={() => {
-              setActiveCourse(course);
+              setActiveCore(course);
+              setActiveCourse(`${course}_sem1`)
               setActive(!active);
+              setActiveCard(0)
+              setActiveIndex(0)
             }}
           >
             {course}
@@ -60,7 +66,7 @@ const CourseMenu = () => {
   )
 }
 
-const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, activeCourse }) => {
+const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, activeCore,setActive }) => {
 
   return (
     <Tilt className='xs:w-[250px] w-full'>
@@ -69,8 +75,9 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, 
         className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card object-contain flex flex-col'
         onClick={() => {
           setActiveCard(index);
-          const course = `bms_${title}`
+          const course = `${activeCore}_${title}`;
           setActiveCourse(course);
+          setActive(0)
         }}
       >
         <div
@@ -100,13 +107,16 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveCourse, 
 
 const Courses = () => {
   const [activeCard, setActiveCard] = useState(0);
-  const [activeCourse, setActiveCourse ] = useState("bms_sem1")
+  const [activeCore, setActiveCore] = useState("bms");
+  const [active, setActive] = useState(0);
+  const [activeCourse, setActiveCourse ] = useState(`${activeCore}_sem1`)
+
   
   return (
     <div className="">
       <div variants={textVariant()}>
         <p className={styles.sectionSubText}>Courses</p>
-        <CourseMenu />
+        <CourseMenu activeCore={activeCore} setActiveCore={setActiveCore} setActiveCourse={setActiveCourse} setActiveCard={setActiveCard} setActiveIndex={setActive}/>
       </div>
 
       <div className='mt-20 flex flex-wrap flex-col sm:flex-row justify-between gap-8 mb-32'>
@@ -119,11 +129,13 @@ const Courses = () => {
             setActiveCard={setActiveCard}
             activeCard={activeCard}
             setActiveCourse={setActiveCourse}
+            activeCore={activeCore}
+            setActive={setActive}
           />
         ))}
       </div>
 
-      <Subjects activeCourse={activeCourse} />
+      <Subjects activeCourse={activeCourse} active={active} setActive={setActive}/>
     </div>
   );
 };
