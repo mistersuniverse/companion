@@ -21,7 +21,7 @@ const CourseMenu = ({ activeCore, setActiveCore, setActiveCourse, setActiveCard,
       <h2 
         className={` ${styles.sectionHeadText} flex items-start gap-2`} 
       >
-        { !active? activeCore : 
+        { !active? activeCore.toUpperCase() : 
           <input 
             type="search" 
             className="relative top-2 xs:w-[230px] w-10/12  rounded-xl max-h-10 text-sm font-light py-5 px-6"
