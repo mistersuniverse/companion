@@ -7,5 +7,6 @@ export default {
     sem1: SEM1,
     sem2: SEM2,
     sem3: SEM3,
-    sem4: SEM4
+    sem4: SEM4,
+    activeSem: "sem2"
 }

@@ -10,58 +10,61 @@ import { dropdown } from "../assets";
 
 import COURSES from "../Courses";
 
-
-const CourseMenu = ({ activeCourse, setActiveCourse, setActiveCard, setActiveIndex, setActiveSem }) => {
+const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSem }) => {
   const [active, setActive ] = useState(false);
   const courses = Object.keys(COURSES);
 
   return (
     <div>
-      <h2 
-        className={` ${styles.sectionHeadText} flex items-start gap-2`} 
-      >
-        { !active? activeCourse.toUpperCase() : 
-          <input 
-            type="search" 
-            className="relative top-2 xs:w-[230px] w-10/12  rounded-xl max-h-10 text-sm font-light py-5 px-6"
-            placeholder={"type your course"}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") {
-                if (courses.find((course) => (event.target.value.toLowerCase() === course)) === undefined) {
-                  alert("Invalid Course or this Course is not added yet!")
-                } else {
-                  console.log(courses.find((course) => (event.target.value.toUpperCase() === course)))
-                  setActiveCourse(event.target.value.toLowerCase())
-                  setActive(false);
-                  setActiveCard(0);
-                  setActiveIndex(0);
-                  setActiveSem("sem1");
+
+      <div className="flex items-center gap-1 ">
+        <h2 
+          className={` ${styles.sectionHeadText} flex items-center`} 
+        >
+          { !active? activeCourse.toUpperCase() : 
+            <input 
+              type="search" 
+              className="xs:w-[230px] w-10/12  rounded-xl max-h-10 text-sm font-light py-5 px-6"
+              placeholder={"type your course"}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  if (courses.find((course) => (event.target.value.toLowerCase() === course)) === undefined) {
+                    alert("Invalid Course or This Course is not Added Yet!")
+                  } else {
+                    console.log(courses.find((course) => (event.target.value.toUpperCase() === course)))
+                    setActiveCourse(event.target.value.toLowerCase())
+                    setActive(false);
+                    setActiveIndex(0);
+                    setActiveSem(COURSES[event.target.value]["activeSem"]);
+                  }
                 }
-              }
-              }}
-          >
-          </input>}
+                }}
+            >
+            </input>}
+        </h2>
+            
+        <img 
+          src={dropdown} alt="dropdown" 
+          // className={` ${active?"rotate-180 w-[45px] relative top-1": " relative top-4 sm:w-[55px] w-[35px] sm:h-[55px] h-[35px]"}`}
+          className={`${active?"rotate-180 w-[45px] h-[45px]":"w-[35px] h-[35px]" } sm:w-[55px] xs-[45px]  sm:h-[55px] xs:h-[45px] `}
+          onClick={() => {
+            setActive(!active);
+          }
+          }
+        />
           
-          <img 
-            src={dropdown} alt="dropdown" 
-            className={` ${active?"rotate-180 w-[45px] relative top-1": " relative top-4 lg:w-[55px] sm:w-[60px] xs:w-[50px] w-[40px] lg:h-[55px] sm:h-[60px] xs:h-[50px] h-[40px]"}`}
-            onClick={() => {
-              setActive(!active);
-            }
-            }
-          />
-      </h2>
+      </div>
       
-      <div className={`${ !active ? "hidden": "relative" } top-5 xs:max-w-[280px] w-full black-gradient rounded-xl z-20 py-3 px-5 leading-8`}>
+      <div className={`${ !active ? "hidden": "relative" } top-2 xs:max-w-[280px] w-full black-gradient rounded-xl z-20 py-3 px-5 leading-8`}>
         {courses.map((course, index) => (
           <div 
             key={index}
             onClick={() => {
               setActiveCourse(course.toLowerCase());
               setActive(!active);
-              setActiveCard(0);
               setActiveIndex(0);
-              setActiveSem("sem1");
+              setActiveSem(COURSES[course]["activeSem"]);
+              console.log(COURSES[course]["activeSem"])
             }}
           >
             {course.toUpperCase()}
@@ -73,24 +76,24 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveCard, setActiveInd
   )
 }
 
-const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveSem, activeCourse, setActive }) => {
+const Card = ({ index, title, icon, setActiveSem, activeCourse, setActive, activeSem }) => {
 
   return (
     <Tilt className='xs:w-[250px] w-full'>
       <div
-        variants={fadeIn("right", "spring", index*0.5, 0.75)} // (direction, type, delay, duration)
+        // variants={fadeIn("right", "spring", index*0.5, 0.75)} // (direction, type, delay, duration)
         className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card object-contain flex flex-col'
         onClick={() => {
 
           if (COURSES[activeCourse][title] === "coming soon"){
 
-            alert("not uploaded yet!");
+            alert("Not Uploaded Yet!");
           } else {
 
-          setActiveCard(index);
           setActiveSem(title);
           setActive(0);
           }
+          
         }}
       >
         <div
@@ -99,7 +102,7 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveSem, act
             scale: 1,
             speed: 450,
           }}
-          className={` ${!(activeCard === index) ? "bg-tertiary" : ""} rounded-[20px] py-5 px-12 min-h-[200px] flex justify-evenly items-center flex-col`}
+          className={` ${!(activeSem === title) ? "bg-tertiary" : ""} rounded-[20px] py-5 px-12 min-h-[200px] flex justify-evenly items-center flex-col`}
           
         >
           <img
@@ -119,16 +122,15 @@ const Card = ({ index, title, icon, setActiveCard, activeCard, setActiveSem, act
 };
 
 const Courses = () => {
-  const [activeCard, setActiveCard] = useState(0);
   const [active, setActive] = useState(0);
   const [activeCourse, setActiveCourse ] = useState("bms")
-  const [activeSem, setActiveSem] = useState("sem1");
+  const [activeSem, setActiveSem] = useState(COURSES[activeCourse]["activeSem"]);
 
   return (
     <div className="">
       <div variants={textVariant()}>
         <p className={styles.sectionSubText}>Courses</p>
-        <CourseMenu activeCourse={activeCourse} setActiveCourse={setActiveCourse} setActiveSem={setActiveSem} setActiveCard={setActiveCard} setActiveIndex={setActive}/>
+        <CourseMenu activeCourse={activeCourse} setActiveCourse={setActiveCourse} setActiveSem={setActiveSem} setActiveIndex={setActive}/>
       </div>
 
       <div className='mt-20 flex flex-wrap flex-col sm:flex-row justify-between gap-8 mb-32'>
@@ -138,11 +140,10 @@ const Courses = () => {
             index={index}
             title={semester.title}
             icon={semester.icon}
-            setActiveCard={setActiveCard}
-            activeCard={activeCard}
             setActiveSem={setActiveSem}
             activeCourse={activeCourse}
             setActive={setActive}
+            activeSem={activeSem}
           />
         ))}
       </div>
