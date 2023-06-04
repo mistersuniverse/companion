@@ -28,9 +28,11 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveCard, setActiveInd
             onKeyDown={(event) => {
               if (event.key === "Enter") {
                 alert(event.target.value);
-                
+
                 if (courses.find((course) => (event.target.value === course)) === undefined) {
                   
+                  alert(event.target.value)
+                  alert(courses)
                   alert("Invalid Course or this Course is not added yet!")
                 } else {
                   console.log(courses.find((course) => (event.target.value.toUpperCase() === course)))
