@@ -1,0 +1,9 @@
+import MICROECONOMICS from "./MICROECONOMICS";
+import PRINCIPLESOFMARKETING from "./PRINCIPLESOFMARKETING";
+import COSTANDMANAGEMENTACCOUTING from "./COSTANDMANAGEMENTACCOUTING";
+
+export default {
+    micro_economics : MICROECONOMICS,
+    principles_of_marketing : PRINCIPLESOFMARKETING,
+    cost_and_management_accouting : COSTANDMANAGEMENTACCOUTING
+}

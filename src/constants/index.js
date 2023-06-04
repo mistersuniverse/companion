@@ -5,10 +5,10 @@ const navLinks = [
     id: "courses",
     title: "Courses",
   },
-  {
-    id: "vision",
-    title: "Vision",
-  },
+  // {
+  //   id: "vision",
+  //   title: "Vision",
+  // },
   {
     id: "contact",
     title: "Contact",
@@ -73,8 +73,7 @@ bms_sem2:
           title: "Long Course",
           content: 
             [
-              {link: "https://ocw.mit.edu/courses/14-01-principles-of-microeconomics-fall-2018/video_galleries/lecture-videos/", title:"Principle of MicroEconomics(MIT)"}, 
-              {link: "https://www.youtube.com/playlist?list=PLTjEimbqDkpBL55W6wye1jTcYePjehkT3", title:"Principle of MicroEconomics(YouTube Playlist)"}
+              {link: "https://drive.google.com/file/d/1U7CK6EhPxYGcWSNqf4VDyFh_EBO6jl8o/view", title:"Syllabus"}
             ]
         }, // Principle of MicroEconomics(MIT), Principle of MicroEconomics(YouTube Playlist)
 
@@ -394,12 +393,6 @@ bms_sem1:
             ], 
         },
     },
-
-    fda:{},
-    fad:{},
-    gffa:{},
-    fadf:{},
-    fadd:{}
   },
 
 bcom_sem2: 
@@ -763,4 +756,5 @@ bcom_sem1:
 
   }
 }
+
 export { navLinks, semesters, Courses};

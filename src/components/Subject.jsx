@@ -24,6 +24,10 @@ const Card = ({index,course,subject, syllabus, short_notes, short_course, long_c
                 {course.replace(/[_]/g, " ").toUpperCase()}<br/>{subject.replace(/[_]/g, " ").toUpperCase()}
             </h1>
 
+            <div className="flex items-center justify-center">
+            <hr className="w-11/12"></hr>
+            </div>
+
             <div className="py-12">
                 <div className="flex justify-between"> 
                 {syllabus.content.map((content) => (

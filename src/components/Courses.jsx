@@ -8,13 +8,15 @@ import { semesters } from "../constants";
 import { fadeIn,textVariant } from "../utils/motion";
 import { Subjects } from "../components";
 import { dropdown } from "../assets";
-import { act } from "@react-three/fiber";
 
+import COURSES from "../Courses";
+
+console.log(COURSES);
 
 const CourseMenu = ({ activeCore, setActiveCore, setActiveCourse, setActiveCard, setActiveIndex }) => {
   const [active, setActive ] = useState(false);
+  const courses = Object.keys(COURSES);
 
-  const courses = ["BMS", "BCOM", "BA", "BTECH", "BCA"];
   return (
     <div>
       <h2 
@@ -27,11 +29,19 @@ const CourseMenu = ({ activeCore, setActiveCore, setActiveCourse, setActiveCard,
             placeholder={"type your course"}
             onKeyDown={(event) => {
               if (event.key === "Enter") {
-                setActiveCore(event.target.value.toLowerCase())
-                setActiveCourse(`${event.target.value.toLowerCase()}_sem1`)
-                setActive(false)};
-                setActiveCard(0);
-                setActiveIndex(0)
+                
+                if (courses.find((course) => (event.target.value === course)) === undefined) {
+                  
+                  alert("This Course is not Added!")
+                } else {
+                  console.log(courses.find((course) => (event.target.value.toUpperCase() === course)))
+                  setActiveCore(event.target.value.toLowerCase())
+                  setActiveCourse(`${event.target.value.toLowerCase()}_sem1`)
+                  setActive(false);
+                  setActiveCard(0);
+                  setActiveIndex(0)
+                }
+              }
               }}
           >
           </input>}
@@ -41,7 +51,8 @@ const CourseMenu = ({ activeCore, setActiveCore, setActiveCourse, setActiveCard,
             className={` ${active?"rotate-180 w-[45px] relative top-1": " relative top-4 lg:w-[55px] sm:w-[60px] xs:w-[50px] w-[40px] lg:h-[55px] sm:h-[60px] xs:h-[50px] h-[40px]"}`}
             onClick={() => {
               setActive(!active);
-            }}
+            }
+            }
           />
       </h2>
       
