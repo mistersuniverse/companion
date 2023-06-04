@@ -4,7 +4,7 @@ import Tilt from 'react-parallax-tilt';
 import { SectionWrapper } from '../hoc';
 import { styles }  from "../styles";
 import { semesters } from "../constants";
-import { fadeIn,textVariant } from "../utils/motion";
+import { textVariant } from "../utils/motion";
 import { Subjects } from "../components";
 import { dropdown } from "../assets";
 
@@ -45,7 +45,6 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
             
         <img 
           src={dropdown} alt="dropdown" 
-          // className={` ${active?"rotate-180 w-[45px] relative top-1": " relative top-4 sm:w-[55px] w-[35px] sm:h-[55px] h-[35px]"}`}
           className={`${active?"rotate-180 ":"" } sm:w-[55px] xs-[45px]  sm:h-[55px] xs:h-[45px] w-[45px] h-[45px] `}
           onClick={() => {
             setActive(!active);
