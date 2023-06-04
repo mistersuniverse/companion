@@ -1,13 +1,8 @@
 import React from "react";
-import { motion } from "framer-motion";
-import Tilt from 'react-parallax-tilt';
 
-import { SectionWrapper } from '../hoc';
+import COURSES from "../Courses";
 
-import { Courses } from "../constants"; 
-
-
-const Card = ({index,course,subject, syllabus, short_notes, short_course, long_course, books, pyqs}) => (
+const Card = ({index, course, subject, syllabus, short_notes, short_course, long_course, books, pyqs}) => (
     
       <div
         className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
@@ -30,8 +25,8 @@ const Card = ({index,course,subject, syllabus, short_notes, short_course, long_c
 
             <div className="py-12">
                 <div className="flex justify-between"> 
-                {syllabus.content.map((content) => (
-                    <div className="min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
+                {syllabus.content.map((content, index) => (
+                    <div key={index} className="min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -43,8 +38,8 @@ const Card = ({index,course,subject, syllabus, short_notes, short_course, long_c
                     {short_notes.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
-                {short_notes.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
+                {short_notes.content.map((content, index) => (
+                    <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -56,8 +51,8 @@ const Card = ({index,course,subject, syllabus, short_notes, short_course, long_c
                     {short_course.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
-                {short_course.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
+                {short_course.content.map((content, index) => (
+                    <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -70,8 +65,8 @@ const Card = ({index,course,subject, syllabus, short_notes, short_course, long_c
                     {long_course.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
-                {long_course.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
+                {long_course.content.map((content, index) => (
+                    <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -83,8 +78,8 @@ const Card = ({index,course,subject, syllabus, short_notes, short_course, long_c
                     {books.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
-                {books.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
+                {books.content.map((content, index) => (
+                    <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -96,8 +91,8 @@ const Card = ({index,course,subject, syllabus, short_notes, short_course, long_c
                     {pyqs.title}
                 </h1>
                 <div className="flex justify-between flex-wrap gap-10"> 
-                {pyqs.content.map((content) => (
-                    <div className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
+                {pyqs.content.map((content, index) => (
+                    <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
                         <a href={content.link} target="_blank">{content.title}</a>
                     </div>
                 ))}
@@ -110,12 +105,11 @@ const Card = ({index,course,subject, syllabus, short_notes, short_course, long_c
     
 );
 
-const Subject = ({activeCourse, activeSubject}) => {
-    
+const Subject = ({activeCourse, activeSem, activeSubject}) => {
 
     return (
     <div className=" w-full sm:w-10/12">   
-        <Card {...Courses[activeCourse][activeSubject]} course={activeCourse} subject={activeSubject}/>
+        <Card key="subjectCard" {...COURSES[activeCourse][activeSem][activeSubject]} course={activeCourse} subject={activeSubject}/>
     </div>
     )
 };

@@ -3,7 +3,7 @@ import PRINCIPLESOFMARKETING from "./PRINCIPLESOFMARKETING";
 import COSTANDMANAGEMENTACCOUTING from "./COSTANDMANAGEMENTACCOUTING";
 
 export default {
-    micro_economics : MICROECONOMICS,
-    principles_of_marketing : PRINCIPLESOFMARKETING,
-    cost_and_management_accouting : COSTANDMANAGEMENTACCOUTING
+    micro_economics4 : MICROECONOMICS,
+    principles_of_marketing4 : PRINCIPLESOFMARKETING,
+    cost_and_management_accouting4 : COSTANDMANAGEMENTACCOUTING
 }

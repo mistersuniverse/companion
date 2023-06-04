@@ -1,3 +1,3 @@
-export default books = [
+export default [
     {link: "", title:""}
 ] 

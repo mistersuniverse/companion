@@ -7,4 +7,4 @@ import pyqs from "./pyqs";
 import short_notes from "./short_notes";
 import syllabus from "./syllabus";
 
-export default subject({title:"Cost & Management Accouting",books, long_course, short_course, pyqs, short_notes, syllabus});
+export default subject({title:"Micro Economics",books, long_course, short_course, pyqs, short_notes, syllabus});

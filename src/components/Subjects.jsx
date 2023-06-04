@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import Tilt from 'react-parallax-tilt';
 
-import { SectionWrapper } from '../hoc';
-
-import { Courses } from "../constants";
 import { fadeIn } from "../utils/motion";
 import { Subject } from "../components";
 
+import COURSES from "../Courses";
 const Card = ({index, title, setActive, active}) => {
 
   return (
@@ -37,19 +34,19 @@ const Card = ({index, title, setActive, active}) => {
   );
 };
 
-const Subjects = ({activeCourse, active, setActive}) => {
-
-  var course = Courses[activeCourse]
-
-  var subjects_of_the_course = Object.keys(course);
-
+const Subjects = ({activeCourse, activeSem, active, setActive}) => {
+  
+  var course = COURSES[activeCourse];
+  var subjects_of_the_course = Object.keys(course[activeSem]);
   var activeSubject = subjects_of_the_course[active];
+
   return (
   
   <div className="flex flex-col gap-40 items-center ">
     <div className="flex justify-between items-center flex-wrap gap-4">
       {subjects_of_the_course.map((Subject,index) => (
           <Card 
+            key={Subject}
             index={index} 
             title={Subject}
             active={active}
@@ -60,6 +57,7 @@ const Subjects = ({activeCourse, active, setActive}) => {
     <Subject 
       activeCourse={activeCourse}
       activeSubject={activeSubject}
+      activeSem={activeSem}
     />
   </div>
 )};
