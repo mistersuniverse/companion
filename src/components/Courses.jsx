@@ -27,6 +27,7 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveCard, setActiveInd
             placeholder={"type your course"}
             onKeyDown={(event) => {
               if (event.key === "Enter") {
+                alert(event.target.value);
                 
                 if (courses.find((course) => (event.target.value === course)) === undefined) {
                   

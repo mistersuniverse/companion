@@ -27,7 +27,7 @@ const Card = ({index, course, subject, syllabus, short_notes, short_course, long
                 <div className="flex justify-between"> 
                 {syllabus.content.map((content, index) => (
                     <div key={index} className="min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
-                        <a href={content.link} target="_blank">{content.title}</a>
+                        <a href={content.link} target={!(content.title === "coming soon"? "coming soon": null)}>{content.title}</a>
                     </div>
                 ))}
                 </div>
@@ -40,7 +40,7 @@ const Card = ({index, course, subject, syllabus, short_notes, short_course, long
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {short_notes.content.map((content, index) => (
                     <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
-                        <a href={content.link} target="_blank">{content.title}</a>
+                        <a href={content.link} target={!(content.title === "coming soon"? "coming soon": null)}>{content.title}</a>
                     </div>
                 ))}
                 </div>
@@ -53,7 +53,7 @@ const Card = ({index, course, subject, syllabus, short_notes, short_course, long
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {short_course.content.map((content, index) => (
                     <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
-                        <a href={content.link} target="_blank">{content.title}</a>
+                        <a href={content.link} target={!(content.title === "coming soon"? "coming soon": null)}>{content.title}</a>
                     </div>
                 ))}
                 </div>
@@ -67,7 +67,7 @@ const Card = ({index, course, subject, syllabus, short_notes, short_course, long
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {long_course.content.map((content, index) => (
                     <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
-                        <a href={content.link} target="_blank">{content.title}</a>
+                        <a href={content.link} target={!(content.title === "coming soon"? "coming soon": null)}>{content.title}</a>
                     </div>
                 ))}
                 </div>
@@ -80,7 +80,7 @@ const Card = ({index, course, subject, syllabus, short_notes, short_course, long
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {books.content.map((content, index) => (
                     <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
-                        <a href={content.link} target="_blank">{content.title}</a>
+                        <a href={content.link} target={!(content.title === "coming soon"? "coming soon": null)}>{content.title}</a>
                     </div>
                 ))}
                 </div>
@@ -93,7 +93,7 @@ const Card = ({index, course, subject, syllabus, short_notes, short_course, long
                 <div className="flex justify-between flex-wrap gap-10"> 
                 {pyqs.content.map((content, index) => (
                     <div key={index} className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
-                        <a href={content.link} target="_blank">{content.title}</a>
+                        <a href={content.link} target={!(content.title === "coming soon"? "coming soon": null)}>{content.title}</a>
                     </div>
                 ))}
                 </div>
