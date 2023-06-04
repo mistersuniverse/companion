@@ -24,7 +24,7 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
           { !active? activeCourse.toUpperCase() : 
             <input 
               type="search" 
-              className="xs:w-[230px] w-10/12  rounded-xl max-h-10 text-sm font-light py-5 px-6"
+              className="xs:w-[230px] w-full rounded-xl max-h-10 text-sm font-light py-5 px-6"
               placeholder={"type your course"}
               onKeyDown={(event) => {
                 if (event.key === "Enter") {
