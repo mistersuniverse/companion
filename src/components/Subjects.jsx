@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Tilt from 'react-parallax-tilt';
 
-import { fadeIn } from "../utils/motion";
 import { Subject } from "../components";
 
 import COURSES from "../Courses";
+
 const Card = ({index, title, setActive, active}) => {
 
   return (
   <Tilt className='xs:w-[250px] w-full'>
+
     <div
-      variants={fadeIn("right", "spring", index*0.5, 0.75)} // (direction, type, delay, duration)
       className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card object-contain'
       onClick={() => {
         setActive(index);
@@ -25,11 +25,14 @@ const Card = ({index, title, setActive, active}) => {
           className={` ${!(active === index) ? "bg-tertiary" : ""} rounded-[20px] py-5 px-12 min-h-[140px] flex items-center justify-center`} 
           
         >
+
           <h3 className='text-white text-[20px] font-bold text-center break-words'>
             {title.replace(/[_]/g, " ").toUpperCase()}
           </h3>
+
         </div>
       </div>
+
     </Tilt>
   );
 };
@@ -43,6 +46,7 @@ const Subjects = ({activeCourse, activeSem, active, setActive}) => {
   return (
   
   <div className="flex flex-col gap-40 items-center ">
+
     <div className="flex justify-between items-center flex-wrap gap-4">
       {subjects_of_the_course.map((Subject,index) => (
           <Card 
@@ -54,11 +58,13 @@ const Subjects = ({activeCourse, activeSem, active, setActive}) => {
           />
       ))}
     </div>
+
     <Subject 
       activeCourse={activeCourse}
       activeSubject={activeSubject}
       activeSem={activeSem}
     />
+
   </div>
 )};
 

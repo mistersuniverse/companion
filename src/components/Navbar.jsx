@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { logo, menu, close, dropdown } from "../assets";
 import { styles } from "../styles";
