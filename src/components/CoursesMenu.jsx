@@ -7,14 +7,15 @@ import COURSES from "../Courses";
 
 const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSem }) => {
     const [active, setActive ] = useState(false);
-    const courses = Object.keys(COURSES);
+    // const courses = Object.keys(COURSES);
+    const courses = ["BMS", "BCOM", "BA", "BA", "BA", "BCA"];
   
     return (
       <div>
   
         <div className="flex items-center gap-1 ">
           <h2 
-            className={` ${styles.sectionHeadText} flex items-center`} 
+            className={` ${styles.sectionHeadText} flex items-center cursor-default`} 
           >
             { !active? activeCourse.toUpperCase() : 
               <input 
@@ -40,7 +41,7 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
               
           <img 
             src={dropdown} alt="dropdown" 
-            className={`${active?"rotate-180 ":"" } sm:w-[55px] xs-[45px]  sm:h-[55px] xs:h-[45px] w-[45px] h-[45px] `}
+            className={`${active?"rotate-180 ":"" } sm:w-[55px] xs-[45px]  sm:h-[55px] xs:h-[45px] w-[45px] h-[45px] cursor-pointer`}
             onClick={() => {
               setActive(!active);
             }
@@ -49,9 +50,10 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
             
         </div>
         
-        <div className={`${ !active ? "hidden": "relative" } top-2 xs:max-w-[280px] w-full black-gradient rounded-xl z-20 py-3 px-5 leading-8`}>
+        <div className={`${ !active ? "hidden": "relative" } top-2 xs:max-w-[280px] h-[200px] w-full black-gradient rounded-xl z-20 leading-8 overflow-y-scroll`}>
           {courses.map((course, index) => (
             <div 
+              className={`cursor-pointer hover:border py-1 px-5 ${ activeCourse.toLowerCase() === course.toLowerCase() ? "font-bold" : ""}`}
               key={index}
               onClick={() => {
                 setActiveCourse(course.toLowerCase());

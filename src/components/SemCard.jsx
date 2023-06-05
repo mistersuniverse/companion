@@ -5,7 +5,7 @@ import COURSES from "../Courses";
 const SemCard = ({ index, title, icon, setActiveSem, activeCourse, setActive, activeSem }) => {
 
     return (
-      <Tilt className='xs:w-[250px] w-full'>
+      <Tilt className='xs:w-[250px] w-full cursor-pointer'>
         <div
           className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card object-contain flex flex-col'
           onClick={() => {

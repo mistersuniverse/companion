@@ -28,7 +28,15 @@ const Card = ({course, subject, syllabus, short_notes, short_course, long_course
             <div className="py-12">
                 <div className="flex justify-between"> 
                 {syllabus.content.map((content, index) => (
-                    <div key={index} className="min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words">
+                    <div 
+                      key={index} 
+                      className="min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words cursor-pointer"
+                      onClick={() => {
+                        if (content.title !== "coming soon") {
+                        window.open(content.link, "_blank");
+                        }
+                      }}
+                    >
                         <a href={content.link} target={!(content.title === "coming soon")? "_blank": ""}>{content.title}</a>
                     </div>
                 ))}

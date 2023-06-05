@@ -8,7 +8,7 @@ import COURSES from "../Courses";
 const Card = ({index, title, setActive, active}) => {
 
   return (
-  <Tilt className='xs:w-[250px] w-full'>
+  <Tilt className='xs:w-[250px] w-full cursor-pointer'>
 
     <div
       className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card object-contain'
