@@ -7,8 +7,7 @@ import COURSES from "../Courses";
 
 const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSem }) => {
     const [active, setActive ] = useState(false);
-    // const courses = Object.keys(COURSES);
-    const courses = ["BMS", "BCOM", "BA", "BA", "BA", "BCA"];
+    const courses = Object.keys(COURSES);
   
     return (
       <div>
@@ -25,7 +24,7 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
                     if (courses.find((course) => (event.target.value.toLowerCase() === course)) === undefined) {
-                      alert("Invalid Course or This Course is not Added Yet!")
+                      alert("Invalid Course or This Course is not Added !")
                     } else {
                       console.log(courses.find((course) => (event.target.value.toUpperCase() === course)))
                       setActiveCourse(event.target.value.toLowerCase())
@@ -56,11 +55,17 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
               className={`cursor-pointer hover:border py-1 px-5 ${ activeCourse.toLowerCase() === course.toLowerCase() ? "font-bold" : ""}`}
               key={index}
               onClick={() => {
-                setActiveCourse(course.toLowerCase());
-                setActive(!active);
-                setActiveIndex(0);
-                setActiveSem(COURSES[course]["activeSem"]);
-                console.log(COURSES[course]["activeSem"])
+                console.log(COURSES[course.toLowerCase()])
+                if (COURSES[course.toLowerCase()] === 'coming soon' || course === undefined) {
+                  alert("This Course is not Added Yet!");
+
+                } else {
+                  setActiveCourse(course.toLowerCase());
+                  setActive(!active);
+                  setActiveIndex(0);
+                  setActiveSem(COURSES[course]["activeSem"]);
+                  console.log(COURSES[course]["activeSem"])
+                }
               }}
             >
               {course.toUpperCase()}

@@ -17,19 +17,19 @@ const navLinks = [
 
 const semesters = [
   {
-    title: "sem1",
+    sem: "sem1",
     icon: web,
   },
   {
-    title: "sem2",
+    sem: "sem2",
     icon: mobile,
   },
   {
-    title: "sem3",
+    sem: "sem3",
     icon: backend,
   },
   {
-    title: "sem4",
+    sem: "sem4",
     icon: creator,
   },
 ];

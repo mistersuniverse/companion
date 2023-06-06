@@ -26,9 +26,9 @@ const Courses = () => {
       <div className='mt-20 flex flex-wrap flex-col sm:flex-row justify-between gap-8 mb-32'>
         {semesters.map((semester, index) => (
           <SemCard
-            key={semester.title}
+            key={semester.sem}
             index={index}
-            title={semester.title}
+            sem={semester.sem}
             icon={semester.icon}
             setActiveSem={setActiveSem}
             activeCourse={activeCourse}

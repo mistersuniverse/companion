@@ -2,7 +2,7 @@ import Tilt from 'react-parallax-tilt';
 
 import COURSES from "../Courses";
 
-const SemCard = ({ index, title, icon, setActiveSem, activeCourse, setActive, activeSem }) => {
+const SemCard = ({ index, sem, icon, setActiveSem, activeCourse, setActive, activeSem }) => {
 
     return (
       <Tilt className='xs:w-[250px] w-full cursor-pointer'>
@@ -10,12 +10,12 @@ const SemCard = ({ index, title, icon, setActiveSem, activeCourse, setActive, ac
           className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card object-contain flex flex-col'
           onClick={() => {
   
-            if (COURSES[activeCourse][title] === "coming soon"){
+            if (COURSES[activeCourse][sem] === "coming soon"){
   
               alert("Not Uploaded Yet!");
             } else {
   
-            setActiveSem(title);
+            setActiveSem(sem);
             setActive(0);
             }
             
@@ -27,7 +27,7 @@ const SemCard = ({ index, title, icon, setActiveSem, activeCourse, setActive, ac
               scale: 1,
               speed: 450,
             }}
-            className={` ${!(activeSem === title) ? "bg-tertiary" : ""} rounded-[20px] py-5 px-12 min-h-[200px] flex justify-evenly items-center flex-col`}
+            className={` ${!(activeSem === sem) ? "bg-tertiary" : ""} rounded-[20px] py-5 px-12 min-h-[200px] flex justify-evenly items-center flex-col`}
             
           >
             <img
@@ -37,7 +37,7 @@ const SemCard = ({ index, title, icon, setActiveSem, activeCourse, setActive, ac
             />
   
             <h3 className='text-white text-[20px] font-bold text-center'>
-              {title.toUpperCase()}
+              {sem.toUpperCase()}
             </h3>
   
           </div>
