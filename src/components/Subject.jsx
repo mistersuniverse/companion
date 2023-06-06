@@ -26,7 +26,7 @@ const Card = ({course, subject, syllabus, short_notes, short_course, long_course
             </div>
 
             <div className="py-12">
-                <div className="flex justify-between"> 
+                <div className="flex justify-between text-center"> 
                 {syllabus.content.map((content, index) => (
                     <div 
                       key={index} 
@@ -43,8 +43,6 @@ const Card = ({course, subject, syllabus, short_notes, short_course, long_course
                 </div>
             </div>
             
-            
-            <ContentCard element={short_notes} />
             <ContentCard element={short_course} />
             <ContentCard element={long_course} />
             <ContentCard element={books} />

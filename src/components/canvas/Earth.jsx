@@ -16,7 +16,7 @@ const Earth = () => {
 
 const EarthCanvas = () => {
   return (
-    <div className="h-full w-full p-12">
+    <div className="h-full w-full">
 
       
 

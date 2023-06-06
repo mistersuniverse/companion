@@ -3,11 +3,11 @@ const ContentCard = ({element}) => (
         <h1 className='text-white sm:text-[40px] text-[32px] font-bold text-center pb-8'>
             {element.title}
         </h1>
-        <div className="flex justify-between flex-wrap gap-10"> 
+        <div className="flex justify-between flex-wrap gap-4 text-center"> 
         {element.content.map((content, index) => (
             <div 
                 key={index} 
-                className="sm:min-w-[45%] min-w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words cursor-pointer"
+                className="lg:w-[48%] w-full green-pink-gradient p-3 rounded-lg sm:text-lg text-sm break-words cursor-pointer"
                 onClick={() => {
                     if (content.title !== "coming soon") {
                      window.open(content.link, "_blank");
