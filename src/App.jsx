@@ -1,5 +1,4 @@
 import { Navbar, Hero, Courses, Contact } from "./components";
-import ScrollDownMenu from "./components/ScrollDownMenu";
 import { BrowserRouter } from "react-router-dom";
 
 const App = () => (
@@ -17,8 +16,7 @@ const App = () => (
         <Contact />
         {/* <StarsCanvas /> */}
       </div>
-      
-      <ScrollDownMenu />
+
     </div>
   </BrowserRouter>
 )
