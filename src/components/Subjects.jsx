@@ -45,7 +45,7 @@ const Subjects = ({activeCourse, activeSem, active, setActive}) => {
 
   return (
   
-  <div className="flex flex-col gap-40 items-center ">
+  <div className="flex flex-col gap-20 items-center ">
 
     <div className="flex justify-between items-center flex-wrap gap-4">
       {subjects_of_the_course.map((Subject,index) => (
@@ -58,11 +58,13 @@ const Subjects = ({activeCourse, activeSem, active, setActive}) => {
           />
       ))}
     </div>
-
+    
+    <div id="subject"></div>
     <Subject 
       activeCourse={activeCourse}
       activeSubject={activeSubject}
       activeSem={activeSem}
+      id="subject"
     />
 
   </div>

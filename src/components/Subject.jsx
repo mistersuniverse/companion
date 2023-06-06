@@ -58,7 +58,7 @@ const Card = ({course, subject, syllabus, short_notes, short_course, long_course
 const Subject = ({activeCourse, activeSem, activeSubject}) => {
 
     return (
-    <div className=" w-full sm:w-10/12">   
+    <div className=" w-full sm:w-10/12" >   
         <Card key="subjectCard" {...COURSES[activeCourse][activeSem][activeSubject]} course={activeCourse} subject={activeSubject}/>
     </div>
     )

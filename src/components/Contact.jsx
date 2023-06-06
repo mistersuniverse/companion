@@ -6,6 +6,7 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import VerticalNavigatorToggle from "./VerticalNavigatorToggle";
 
 const Contact = () => {
   const formRef = useRef();
@@ -67,18 +68,21 @@ const Contact = () => {
   return (
     <div
       className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
+      
     >
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+        id='contact'
       >
-        <p className={styles.sectionSubText}>Want to Contribute</p>
+        <p className={styles.sectionSubText} id="contact-p">Want to Contribute</p>
         <h3 className={styles.sectionHeadText}>Connect.</h3>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
+          
         >
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Name</span>
@@ -125,9 +129,11 @@ const Contact = () => {
 
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px] mb-36 sm:m-0'
       > 
+        <VerticalNavigatorToggle id="subject" />
         <EarthCanvas />
+        <VerticalNavigatorToggle id="contact-p" />
       </motion.div>
     </div>
   );
