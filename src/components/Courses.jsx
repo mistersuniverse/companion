@@ -19,7 +19,7 @@ const Courses = () => {
   return (
     <div className="">
       <div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} cursor-default`}>Courses</p>
+        <p className={`${styles.sectionSubText} cursor-default`}>Chose Your Course Below.</p>
         <CourseMenu activeCourse={activeCourse} setActiveCourse={setActiveCourse} setActiveSem={setActiveSem} setActiveIndex={setActive}/>
       </div>
 

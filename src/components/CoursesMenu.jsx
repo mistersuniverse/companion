@@ -13,7 +13,7 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
       <div>
   
         <div className="flex items-center gap-1 ">
-          <h2 
+          <div 
             className={` ${styles.sectionHeadText} flex items-center cursor-default`} 
           >
             { !active? activeCourse.toUpperCase() : 
@@ -24,7 +24,7 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
                     if (courses.find((course) => (event.target.value.toLowerCase() === course)) === undefined) {
-                      alert("Invalid Course or This Course is not Added !")
+                      alert("Invalid Course or This Course is not Added!")
                     } else {
                       console.log(courses.find((course) => (event.target.value.toUpperCase() === course)))
                       setActiveCourse(event.target.value.toLowerCase())
@@ -36,11 +36,11 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
                   }}
               >
               </input>}
-          </h2>
+          </div>
               
           <img 
             src={dropdown} alt="dropdown" 
-            className={`${active?"rotate-180 ":"" } sm:w-[55px] xs-[45px]  sm:h-[55px] xs:h-[45px] w-[45px] h-[45px] cursor-pointer`}
+            className={`${active?"rotate-180 animate-pulse":"animate-bounce" } sm:w-[65px]   sm:h-[65px]  w-[55px] h-[55px] cursor-pointer   `}
             onClick={() => {
               setActive(!active);
             }
@@ -55,16 +55,14 @@ const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSe
               className={`cursor-pointer hover:border py-1 px-5 ${ activeCourse.toLowerCase() === course.toLowerCase() ? "font-bold" : ""}`}
               key={index}
               onClick={() => {
-                console.log(COURSES[course.toLowerCase()])
-                if (COURSES[course.toLowerCase()] === 'coming soon' || course === undefined) {
-                  alert("This Course is not Added Yet!");
-
+                if (COURSES[course.toLocaleLowerCase()] === "coming soon") {
+                  alert("This Course is not Added Yet!")
                 } else {
-                  setActiveCourse(course.toLowerCase());
-                  setActive(!active);
-                  setActiveIndex(0);
-                  setActiveSem(COURSES[course]["activeSem"]);
-                  console.log(COURSES[course]["activeSem"])
+                setActiveCourse(course.toLowerCase());
+                setActive(!active);
+                setActiveIndex(0);
+                setActiveSem(COURSES[course]["activeSem"]);
+                console.log(COURSES[course]["activeSem"])
                 }
               }}
             >
