@@ -25,7 +25,7 @@ const Hero = () => {
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex flex-col   justify-center items-center'>
         
-        <p className='mb-8 font-bold text-[#915EFF] animate-pulse sm:text-lg text-sm text-center max-w-7xl'>
+        <p className='mb-8 font-bold text-[#915EFF] animate-pulse sm:text-lg xs:text-sm text-xs text-center sm:max-w-5xl max-w-[200px]'>
           { MESSAGEFORAUDIENCE }
         </p>
         <a href='#courses'>
