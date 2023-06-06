@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import { styles } from '../styles';
 import { MESSAGEFORAUDIENCE, VISION} from '../constants'
+import { arrowdown } from '../assets'
 
 const Hero = () => {
   return (
@@ -17,7 +18,7 @@ const Hero = () => {
 
         <div>
           <h1 className={` ${styles.heroHeadText} text-white`}>
-            Welcome To <span className='text-[#915EFF] '>Resourcia</span>
+            Welcome To <span className='text-[#915EFF] animate-pulse'>Resourcia</span>
           </h1>
           <p className={` ${styles.heroSubText}`}>{ VISION }</p>
         </div>
@@ -25,9 +26,12 @@ const Hero = () => {
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex flex-col   justify-center items-center'>
         
-        <p className='mb-8 font-bold text-[#915EFF] animate-pulse sm:text-lg xs:text-sm text-xs text-center sm:max-w-5xl max-w-[200px]'>
-          { MESSAGEFORAUDIENCE }
-        </p>
+        <a href='#courses'>
+          <p className='mb-8 font-bold text-[#915EFF] animate-pulse sm:text-lg xs:text-sm text-xs text-center sm:max-w-5xl max-w-[300px] min-w-[200px] border rounded-xl py-4 px-8'>
+            { MESSAGEFORAUDIENCE }
+          </p>
+        </a>
+
         <a href='#courses'>
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
             <motion.div
@@ -39,8 +43,11 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className='w-3 h-3 rounded-full bg-secondary mb-1'
-            />
+              className='w-3 h-3 rounded-full  mb-1'
+            >
+
+            <img src={arrowdown} />
+            </motion.div>
           </div>
         </a>
       </div>

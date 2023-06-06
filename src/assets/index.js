@@ -7,6 +7,7 @@ import close from './close.svg';
 import menu from './menu.svg';
 import logo from './logo.png';
 import dropdown from './dropdown.png';
+import arrowdown from './arrowdown.png';
 
 
-export {backend, creator, herobg, mobile, web, close, menu, logo, dropdown}
+export {backend, creator, herobg, mobile, web, close, menu, logo, dropdown, arrowdown}

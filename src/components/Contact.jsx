@@ -131,9 +131,9 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px] mb-36 sm:m-0'
       > 
-        <VerticalNavigatorToggle id="subject" />
+        <VerticalNavigatorToggle id="subject" direction="up" />
         <EarthCanvas />
-        <VerticalNavigatorToggle id="contact-p" />
+        <VerticalNavigatorToggle id="contact-p" direction="down" />
       </motion.div>
     </div>
   );
