@@ -45,7 +45,7 @@ const EarthCanvas = () => {
   }, []);
 
   return (
-    <div ref={scrollContainerRef} className="h-full w-full">
+    <div ref={scrollContainerRef} className="h-full w-full p-12">
       <Canvas
         shadows
         frameloop="demand"
@@ -57,6 +57,7 @@ const EarthCanvas = () => {
           far: 200,
           position: [-4, 3, 6],
         }}
+        className="rounded-full p-0"
       >
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls
