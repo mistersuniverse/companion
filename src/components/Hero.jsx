@@ -55,7 +55,7 @@ const Hero = () => {
           </a>
         </div>
 
-        <VerticalNavigatorToggle />
+        <VerticalNavigatorToggle id="courses" />
 
       </div>
     </section>
