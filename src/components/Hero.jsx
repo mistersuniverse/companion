@@ -3,7 +3,28 @@ import { motion } from "framer-motion";
 
 import { styles } from '../styles';
 import { MESSAGEFORAUDIENCE, VISION} from '../constants'
-import { arrowdown } from '../assets'
+import VerticalNavigatorToggle from "./VerticalNavigatorToggle";
+
+const Arrowdown = () => (
+  <a href='#courses'>
+          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
+            <motion.div
+              animate={{
+                y: [0, 24, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className='w-3 h-3 rounded-full  mb-1'
+            >
+
+            <img src={arrowdown} />
+            </motion.div>
+          </div>
+        </a>
+)
 
 const Hero = () => {
   return (
@@ -24,32 +45,18 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex flex-col   justify-center items-center'>
-        
-        <a href='#courses'>
-          <p className='mb-8 font-bold text-[#915EFF] animate-pulse sm:text-lg xs:text-sm text-xs text-center sm:max-w-5xl max-w-[300px] min-w-[200px] border rounded-xl py-4 px-8'>
-            { MESSAGEFORAUDIENCE }
-          </p>
-        </a>
+      <div className='absolute xs:bottom-10 bottom-32 w-full flex  flex-col justify-center items-center gap-2'>
 
-        <a href='#courses'>
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className='w-3 h-3 rounded-full  mb-1'
-            >
+        <div className='max-w-[1140px] sm:w-10/12 border rounded-xl py-4 px-8 mx-14 sm:mx-24 mb-4'>
+          <a href='#courses'>
+            <p className='font-bold text-[#915EFF] animate-pulse sm:text-lg xs:text-sm text-xs text-center  '>
+              { MESSAGEFORAUDIENCE }
+            </p>
+          </a>
+        </div>
 
-            <img src={arrowdown} />
-            </motion.div>
-          </div>
-        </a>
+        <VerticalNavigatorToggle />
+
       </div>
     </section>
   )
