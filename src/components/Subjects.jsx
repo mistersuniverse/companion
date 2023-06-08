@@ -18,13 +18,7 @@ const Card = ({index, title, setActive, active}) => {
       }}
     >
         <div
-          options={{
-            max: 45, 
-            scale: 1,
-            speed: 450,
-          }}
-          className={` ${!(active === index) ? "bg-tertiary" : ""} rounded-[20px] py-5 px-12 min-h-[140px] flex items-center justify-center`} 
-          
+          className={` ${!(active === index) ? "bg-tertiary" : ""} rounded-[20px] py-5 px-12 min-h-[140px] flex items-center justify-center`}    
         >
 
           <h3 className='text-white text-[20px] font-bold text-center break-words'>
