@@ -6,6 +6,7 @@ const SemCard = ({ index, sem, icon, setActiveSem, activeCourse, setActive, acti
 
     return (
       <Tilt className='xs:w-[250px] w-full cursor-pointer'>
+        <a href={` ${!(activeSem === sem) ? "#courses" : "#subjects"}` }>
         <div
           className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card object-contain flex flex-col'
           onClick={() => {
@@ -42,6 +43,7 @@ const SemCard = ({ index, sem, icon, setActiveSem, activeCourse, setActive, acti
   
           </div>
         </div>
+        </a>
       </Tilt>
     );
   };

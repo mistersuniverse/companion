@@ -7,7 +7,7 @@ import COURSES from "../Courses";
 
 const CourseMenu = ({ activeCourse, setActiveCourse, setActiveIndex, setActiveSem }) => {
     const [active, setActive ] = useState(false);
-    const courses = Object.keys(COURSES);
+    const courses = Object.keys(COURSES).sort();
   
     return (
       <div>

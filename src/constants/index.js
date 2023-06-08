@@ -35,6 +35,6 @@ const semesters = [
 ];
 
 const VISION = "Your Only College Companion";
-const MESSAGEFORAUDIENCE = "Get Delhi University Exam Material Below"
+const MESSAGEFORAUDIENCE = "Scroll Down"
 
 export { navLinks, semesters, VISION, MESSAGEFORAUDIENCE};

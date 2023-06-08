@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { SectionWrapper } from '../hoc';
 import { styles }  from "../styles";
@@ -19,7 +19,7 @@ const Courses = () => {
   return (
     <div className="">
       <div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} cursor-default`}>Chose Your Course Below.</p>
+        <p className={`${styles.sectionSubText} cursor-default`}>Choose Your Course Below.</p>
         <CourseMenu activeCourse={activeCourse} setActiveCourse={setActiveCourse} setActiveSem={setActiveSem} setActiveIndex={setActive}/>
       </div>
 
@@ -38,6 +38,9 @@ const Courses = () => {
         ))}
       </div>
       
+      <span className='hash-span' id="subjects">
+          &nbsp;
+      </span>
       <Subjects activeCourse={activeCourse} active={active} activeSem={activeSem} setActive={setActive}/>
     </div>
   );

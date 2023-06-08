@@ -75,7 +75,7 @@ const Contact = () => {
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
         id='contact'
       >
-        <p className={styles.sectionSubText} id="contact-p">Want to Contribute</p>
+        <p className={styles.sectionSubText} id="contact-p">For any Feedback, Suggestion or Request</p>
         <h3 className={styles.sectionHeadText}>Connect.</h3>
 
         <form
@@ -113,7 +113,7 @@ const Contact = () => {
               name='message'
               value={form.message}
               onChange={handleChange}
-              placeholder='how will you help the community?'
+              placeholder='how else we can do you?'
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>

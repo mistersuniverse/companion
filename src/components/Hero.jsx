@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { styles } from '../styles';
 import { MESSAGEFORAUDIENCE, VISION} from '../constants'
-import VerticalNavigatorToggle from "./VerticalNavigatorToggle";
+import { arrowdown } from "../assets";
 
 const Arrowdown = () => (
   <a href='#courses'>
@@ -47,16 +47,15 @@ const Hero = () => {
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex  flex-col justify-center items-center gap-2'>
 
-        <div className='max-w-[1140px] sm:w-10/12 border rounded-xl py-4 px-8 mx-14 sm:mx-24 mb-4'>
+        <div className='max-w-[1140px]'>
           <a href='#courses'>
-            <p className='font-bold text-[#915EFF] animate-pulse sm:text-lg xs:text-sm text-xs text-center  '>
+            <p className='font-bold text-[#915EFF] animate-pulse  text-center  '>
               { MESSAGEFORAUDIENCE }
             </p>
           </a>
         </div>
 
-        <VerticalNavigatorToggle id="courses" />
-
+      <Arrowdown />
       </div>
     </section>
   )

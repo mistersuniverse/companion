@@ -4,7 +4,7 @@ import ContentCard from "./ContentCard";
 
 import COURSES from "../Courses";
 
-const Card = ({course, subject, syllabus, short_notes, short_course, long_course, books, pyqs}) => (
+const Card = ({course, subject, syllabus, short_course, long_course, books, pyqs}) => (
     
       <div
         className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'

@@ -10,6 +10,7 @@ const Card = ({index, title, setActive, active}) => {
   return (
   <Tilt className='xs:w-[250px] w-full cursor-pointer'>
 
+    <a href={` ${!(active === index) ? "" : "#subject"}`}>
     <div
       className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card object-contain'
       onClick={() => {
@@ -32,7 +33,7 @@ const Card = ({index, title, setActive, active}) => {
 
         </div>
       </div>
-
+      </a>
     </Tilt>
   );
 };
@@ -59,12 +60,14 @@ const Subjects = ({activeCourse, activeSem, active, setActive}) => {
       ))}
     </div>
     
-    <div id="subject"></div>
+    <span className='hash-span' id="subject">
+          &nbsp;
+    </span>
+
     <Subject 
       activeCourse={activeCourse}
       activeSubject={activeSubject}
       activeSem={activeSem}
-      id="subject"
     />
 
   </div>
