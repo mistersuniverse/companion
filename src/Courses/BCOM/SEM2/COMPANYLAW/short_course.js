@@ -1,3 +1,3 @@
 export default [
-    {link: "", title:"coming soon"}, 
+    {link: "#", title:"coming soon"}, 
   ]
