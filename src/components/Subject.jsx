@@ -32,7 +32,7 @@ const Card = ({course, subject, syllabus, short_course, long_course, books, pyqs
                         }
                       }}
                     >
-                        <a href={content.link} target={!(content.title === "coming soon")? "_blank": ""}>{content.title}</a>
+                        <a href={!(content.title === "coming soon")? content.link : "#subject"} target={!(content.title === "coming soon")? "_blank": ""}>{content.title}</a>
                     </div>
                 ))}
                 </div>

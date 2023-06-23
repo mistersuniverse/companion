@@ -14,7 +14,7 @@ const ContentCard = ({element}) => (
                     }
                 }}
             >
-                <a href={content.link} target={!(content.title === "coming soon")? "_blank": ""}>{content.title}</a>
+                <a href={!(content.title === "coming soon")? content.link : "#subject"} target={!(content.title === "coming soon")? "_blank": ""}>{content.title}</a>
             </div>
         ))}
         </div>
